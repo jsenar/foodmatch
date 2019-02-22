@@ -1,0 +1,9 @@
+{
+    "parser": "babel-eslint",
+    "globals": {
+        "document": true
+    },
+    "env": {
+        "es6": true
+    }
+}
