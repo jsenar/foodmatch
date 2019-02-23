@@ -59,6 +59,7 @@ app.post('/api/search', function(req, res) {
         location {
           formatted_address
         }
+        photos
       }
     }
   }`;

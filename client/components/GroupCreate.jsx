@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchForm from './SearchForm';
 import axios from 'axios';
+import ResultList from './ResultList';
 
 class GroupCreate extends React.Component{
   constructor(props) {
@@ -16,7 +17,7 @@ class GroupCreate extends React.Component{
 
   search({term, location}) {
     const locale = 'en_US';
-    axios.post('/api/search',{
+    axios.post('/api/search', {
       term,
       location,
       locale
@@ -32,9 +33,12 @@ class GroupCreate extends React.Component{
       <div>
         <h3>Search for Restaurants</h3>
         <SearchForm search={this.search}/>
+        <ResultList businesses={this.state.queriedBusinesses} />
         {/* {this.state.queriedBusinesses.map( (business) => {
           return (
-            <h4 key={business.alias}>{business.name}</h4>
+            <div>
+              <h4 key={business.alias}>{business.name}</h4>
+            </div>
           )
         })} */}
         {/* Search Results */}
