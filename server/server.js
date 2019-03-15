@@ -60,6 +60,7 @@ app.post('/api/search', function(req, res) {
           formatted_address
         }
         photos
+        url
       }
     }
   }`;
