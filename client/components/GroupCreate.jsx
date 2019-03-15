@@ -17,7 +17,7 @@ class GroupCreate extends React.Component{
   }
 
   search({term, location}) {
-    if (term === "test") {
+    if (data && term === "test") {
       this.setState({queriedBusinesses: data});
       return;
     }

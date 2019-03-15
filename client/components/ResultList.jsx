@@ -10,8 +10,10 @@ export default function ResultList({businesses}) {
             key={business.alias} 
             businessName={business.name}
             rating={business.rating}
+            reviewCount={business.review_count}
             imgUrl={business.photos[0]} 
             url={business.url}
+            price={business.price}
             />
         );
       })}

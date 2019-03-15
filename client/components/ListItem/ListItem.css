@@ -1,9 +1,33 @@
 .listItem {
   border-bottom: 1px solid black;
+  margin: 20px;
+  display: flex;
+  padding: 15px;
 }
 
 .img {
   height: 150px;
   width: 150px;
   object-fit: cover;
+}
+
+.price{ 
+  margin-top: 5px;
+}
+
+.title {
+  margin-bottom: 0;
+}
+
+.content {
+  width: 400px;
+  margin-left: 25px;
+}
+
+.ratings {
+  float: left;
+}
+
+.reviews {
+  float: right;
 }
