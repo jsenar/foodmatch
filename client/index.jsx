@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
+
 // import ApolloClient from 'apollo-client';
 // import { ApolloProvider } from 'react-apollo';
 import App from './components/App';
@@ -18,12 +21,14 @@ import GroupCreate from './components/GroupCreate';
 
 function Root() {
   return (
-    <Router>
-      <div>
-        <Route exact path="/" component={App} />
-        <Route path="/create" component={GroupCreate} />
-      </div>
-    </Router>
+    <Provider store={store} >
+      <Router>
+        <div>
+          <Route exact path="/" component={App} />
+          <Route path="/create" component={GroupCreate} />
+        </div>
+      </Router>
+    </Provider>
   );
 }
 

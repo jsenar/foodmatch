@@ -11,7 +11,6 @@ class GroupCreate extends React.Component{
 
     this.state = {
       queriedBusinesses: [],
-      savedBusinesses: []
     };
 
     this.search = this.search.bind(this);
@@ -49,8 +48,7 @@ class GroupCreate extends React.Component{
 export default connect(
   (state) => {
     return {
-      queriedBusinesses: state.queriedBusinesses,
       savedBusinesses: state.savedBusinesses
     }
-  }
+  }, null
 )(GroupCreate);

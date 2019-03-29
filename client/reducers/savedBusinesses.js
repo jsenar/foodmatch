@@ -1,4 +1,4 @@
-import { ADD_SAVED_BUSINESS } from 'client/actions/actionTypes';
+import { ADD_SAVED_BUSINESS } from '../actions/actionTypes';
 
 export function savedBusinesses(state = [], action) {
   switch (action.type) {

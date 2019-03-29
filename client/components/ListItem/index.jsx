@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './ListItem.css';
+import SaveButton from '../../containers/SaveButton';
 
-export default function ListItem({businessName, imgUrl, rating, reviewCount, url, price}) {
+export default function ListItem(props) {
+  let {businessName, imgUrl, rating, reviewCount, url, price} = props;
   return (
     <div className={styles.listItem}>
       <img className={styles.img} src={imgUrl} />
@@ -13,6 +15,7 @@ export default function ListItem({businessName, imgUrl, rating, reviewCount, url
           <span className={styles.reviews}>{reviewCount} reviews</span>
         </div>
         <p><a target="_blank" href={url}>View on Yelp</a></p>
+        <SaveButton business={props} />
       </div>
     </div>
   )
