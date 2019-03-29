@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchForm from './SearchForm';
 import axios from 'axios';
+import { connect } from 'react-redux';
 import ResultList from './ResultList';
 import { data } from '../testData';
 
@@ -45,4 +46,11 @@ class GroupCreate extends React.Component{
   }
 }
 
-export default GroupCreate;
+export default connect(
+  (state) => {
+    return {
+      queriedBusinesses: state.queriedBusinesses,
+      savedBusinesses: state.savedBusinesses
+    }
+  }
+)(GroupCreate);
