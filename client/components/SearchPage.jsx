@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import ResultList from './ResultList';
 import { data } from '../testData';
 
-class GroupCreate extends React.Component{
+class SearchPage extends React.Component{
   constructor(props) {
     super(props);
 
@@ -51,4 +51,4 @@ export default connect(
       savedBusinesses: state.savedBusinesses
     }
   }, null
-)(GroupCreate);
+)(SearchPage);

@@ -5,14 +5,20 @@ import { addSavedBusiness } from '../actions/addSavedBusiness';
 
 export function SaveButton(props) {
   return  (
-    <React.Fragment>
-      <Button onClick={() => props.addSavedBusiness(props.business)}>Save to Group</Button>
-    </React.Fragment> 
+    <Button 
+      onClick={() => props.addSavedBusiness(props.business)}
+      disabled={props.savedBusinesses.find(business => business.alias === props.business.alias)}>
+      Save to Group
+    </Button>
   )
 }
 
 export default connect(
-  null, 
+  (state) => {
+    return {
+      savedBusinesses: state.savedBusinesses
+    }
+  }, 
   (dispatch) => {
     return {
       addSavedBusiness: business => {

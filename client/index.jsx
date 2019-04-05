@@ -7,7 +7,7 @@ import { store } from './store/store';
 // import ApolloClient from 'apollo-client';
 // import { ApolloProvider } from 'react-apollo';
 import App from './components/App';
-import GroupCreate from './components/GroupCreate';
+import SearchPage from './components/SearchPage';
 
 // const styles = {
 //   app: {
@@ -25,7 +25,8 @@ function Root() {
       <Router>
         <div>
           <Route exact path="/" component={App} />
-          <Route path="/create" component={GroupCreate} />
+          <Route path="/search" component={SearchPage} />
+          {/* <Route path="/create" component={GroupCreate} /> */}
         </div>
       </Router>
     </Provider>

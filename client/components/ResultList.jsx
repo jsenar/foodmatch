@@ -8,6 +8,7 @@ export default function ResultList({businesses}) {
         return (
           <ListItem 
             key={business.alias} 
+            alias={business.alias}
             businessName={business.name}
             rating={business.rating}
             reviewCount={business.review_count}
