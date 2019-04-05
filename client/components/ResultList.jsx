@@ -9,7 +9,7 @@ export default function ResultList({businesses}) {
           <ListItem 
             key={business.alias} 
             alias={business.alias}
-            businessName={business.name}
+            name={business.name}
             rating={business.rating}
             reviewCount={business.review_count}
             imgUrl={business.photos[0]} 
