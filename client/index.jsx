@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
 
@@ -25,6 +25,13 @@ function Root() {
     <Provider store={store} >
       <Router>
         <div className="container">
+          <div className="nav" >
+            <ul>
+              <li><NavLink to="/">Home</NavLink></li>
+              <li><NavLink to="/search">Search</NavLink></li>
+              <li><NavLink to="/create">Create</NavLink></li>
+            </ul>
+          </div>
           <Route exact path="/" component={App} />
           <Route path="/search" component={SearchPage} />
           <Route path="/create" component={CreatePage} />
