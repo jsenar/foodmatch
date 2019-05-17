@@ -1,46 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSearchForm } from './CustomHooks';
 
-class SearchForm extends React.Component {
-  constructor(props) {
-    super(props);
+export function SearchForm(props) {
 
-    this.state = {
-      term: '',
-      location: ''
-    };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+  function search() {
+    props.search({ term: inputs.term, location: inputs.location })
   }
 
-  handleChange(event) {
-    const name = event.target.name;
-    this.setState({
-      [name]: event.target.value
-    })
-  }
+  const initialState = { term: '', location: ''}
 
-  handleSubmit(event) {
-    event.preventDefault();
-
-    this.props.search(this.state);
-  }
-
-  render() {
-    return (
-      <div id="search-form">
-        <form onSubmit={this.handleSubmit}>
-          <label>Search:
-            <input name="term" type="text" value={this.state.term} onChange={this.handleChange}/>
-          </label>
-          <label>Location (City and Zip Code):
-            <input name="location" type="text" value={this.state.location} onChange={this.handleChange}/>
-          </label>
-          <input type="submit" value="Submit" />
-        </form>
-      </div>
-    );
-  }
+  const {inputs, handleInputChange, handleSubmit} = useSearchForm(initialState, search);
+  
+  return (
+    <div id="search-form">
+      <form onSubmit={handleSubmit}>
+        <label>Search:
+          <input 
+            name="term" 
+            type="text" 
+            value={inputs.term} 
+            onChange={handleInputChange} />
+        </label>
+        <label>Location (City and Zip Code):
+          <input 
+            name="location" 
+            type="text" 
+            value={inputs.location} 
+            onChange={handleInputChange} />
+        </label>
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  );
 }
 
 export default SearchForm;
