@@ -21,12 +21,13 @@ if (!MONGO_URI) {
 }
 
 mongoose.Promise = global.Promise;
-mongoose.connect(MONGO_URI, { useNewUrlParser: true });
+
+mongoose.connect(MONGO_URI, { useNewUrlParser: true })
 mongoose.connection
   .once('open', () => console.log('Connected to MongoLab instance.'))
   .on('error', error => console.log('Error connecting to MongoLab:', error));
 
-app.use(bodyParser.json());
+app.use(bodyParser.json()); 
 app.use('/graphql', expressGraphQL({
   schema,
   graphiql: true,
@@ -74,5 +75,23 @@ app.post('/api/search', function(req, res) {
     res.send(err);
   })
 })
+
+const Group = mongoose.model('group');
+
+app.post('/api/create', function(req, res) {
+  const dateCreated = Date.now();
+  let businesses = req.body.businesses;
+  let group = new Group({dateCreated, businesses});
+  console.log("BEFORE SAVE")
+  group.save( (err, group) => {
+    console.log("AFTER SAVE")
+    if (err) {
+      res.send(err);
+      return console.error(err);
+    } else {
+      res.send(group);
+    }
+  });
+});
 
 module.exports = app;

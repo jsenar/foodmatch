@@ -8,7 +8,9 @@ const BusinessSchema = new Schema({
   rating: { type: Number},
   review_count: { type: Number},
   price: { type: String },
-  address: { type: String },
+  formatted_address: { type: String },
+  img_url: { type: String },
+  url: { type: String },
   likes: { type: Number, default: 0 },
   dislikes: { type: Number, default: 0 },
 });
