@@ -82,9 +82,7 @@ app.post('/api/create', function(req, res) {
   const dateCreated = Date.now();
   let businesses = req.body.businesses;
   let group = new Group({dateCreated, businesses});
-  console.log("BEFORE SAVE")
   group.save( (err, group) => {
-    console.log("AFTER SAVE")
     if (err) {
       res.send(err);
       return console.error(err);
