@@ -2,22 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ResultList from './ResultList';
 import axios from 'axios';
-import { RedirectTo } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
 function CreatePage(props) {
   return (
     <div>
       <h3>Saved Restaurants</h3>
-      <ul>
-        {props.savedBusinesses.map((business) => {
-          return (
-            <li key={business.alias}>
-              {business.name}
-            </li>
-          );
-        })}
-      </ul>
+      <ResultList businesses={props.savedBusinesses} listType={'create'}/>
 
       <Button onClick={() => create(props.savedBusinesses)}>
         CREATE
@@ -47,7 +39,7 @@ function create(savedBusinesses) {
     businesses
   }).then((res) => {
     return (
-      <RedirectTo to='/home' />
+      <Redirect to='/home' />
     );
   }).catch((err) => {
     console.log(err);

@@ -41,7 +41,7 @@ class SearchPage extends React.Component{
         <h3>Search for Restaurants</h3>
         <SearchForm search={this.search}/>
         <Link to='/create'>View Saved Restaurants</Link>
-        <ResultList businesses={this.state.queriedBusinesses} />
+        <ResultList businesses={this.state.queriedBusinesses} listType={'search'}/>
       </div>
     );
   }

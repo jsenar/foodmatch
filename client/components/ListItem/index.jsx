@@ -1,8 +1,11 @@
 import React from 'react';
 import styles from './ListItem.css';
 import SaveButton from '../../containers/SaveButton';
+import DeleteButton from '../../containers/DeleteButton';
 
-export function ListItem({business}) {
+export function ListItem({business, buttonType}) { 
+  let Button = buttonType === 'save' ? SaveButton : DeleteButton;
+
   let {name, photos, rating, review_count, url, price} = business;
   return (
     <div className={styles.listItem}>
@@ -15,7 +18,7 @@ export function ListItem({business}) {
           <span className={styles.reviews}>{review_count} reviews</span>
         </div>
         <p><a target="_blank" href={url}>View on Yelp</a></p>
-        <SaveButton business={business} />
+        <Button business={business} />
       </div>
     </div>
   )

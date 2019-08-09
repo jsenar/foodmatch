@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Button from 'react-bootstrap/Button';
-import { addSavedBusiness } from '../actions/addSavedBusiness';
+import { addSavedBusiness } from '../actions/savedBusiness';
 
 export function SaveButton(props) {
   return  (
